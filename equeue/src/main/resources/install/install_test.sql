@@ -30,3 +30,15 @@ CREATE TABLE  `filial` (
 
 INSERT INTO filial (id, kod, name, address, coment) VALUES
 (1, 'kod_filial_test','name_filial_test', 'address_filial_test', 'coment_filial_test');
+
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE  `user_role` (
+`id` bigint(20) NOT NULL AUTO_INCREMENT,  
+`authority` varchar(255) NOT NULL,
+`name` varchar(255) NOT NULL, 
+PRIMARY KEY (`id`),
+UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO user_role (`id`,`authority`,`name`)
+VALUES(null,'test1','Test_name_users_role');

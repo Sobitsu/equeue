@@ -12,5 +12,6 @@
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
      <mapping class="com.sobit.equeue.entities.Users"/>
    	 <mapping class="com.sobit.equeue.entities.Filial"/>
+   	 <mapping class="com.sobit.equeue.entities.UsersRole"/>
   </session-factory>
 </hibernate-configuration>
