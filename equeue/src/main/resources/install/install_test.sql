@@ -16,3 +16,29 @@ CREATE TABLE  `users` (
 
 INSERT INTO users (id, login, password, user_role,ufilial,upodr) VALUES
 (1, 'test','098f6bcd4621d373cade4e832627b4f6', 1, 1, 1);
+
+DROP TABLE IF EXISTS `filial`;
+CREATE TABLE  `filial` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `kod` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255),
+  `coment` varchar(255),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO filial (id, kod, name, address, coment) VALUES
+(1, 'kod_filial_test','name_filial_test', 'address_filial_test', 'coment_filial_test');
+
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE  `user_role` (
+`id` bigint(20) NOT NULL AUTO_INCREMENT,  
+`authority` varchar(255) NOT NULL,
+`name` varchar(255) NOT NULL, 
+PRIMARY KEY (`id`),
+UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO user_role (`id`,`authority`,`name`)
+VALUES(null,'test1','Test_name_users_role');
