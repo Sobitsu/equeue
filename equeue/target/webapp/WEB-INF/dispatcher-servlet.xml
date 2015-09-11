@@ -11,9 +11,16 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-   <mvc:resources mapping="/resources/**" location="/resources/js/" />  
-    
+   <mvc:resources mapping="/resources/**" location="/resources/js/" /> 
+   <mvc:resources mapping="/js/**" location="/js/" /> 
+   <mvc:annotation-driven/>
+   <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	 
+    <context:annotation-config/>
   	<context:component-scan base-package="com.sobit.equeue.services.users.rest" />
-	<mvc:annotation-driven/>
-		
+  	<context:component-scan base-package="com.sobit.equeue.services.dao.data.users"/>
+	
+	
+	
+	
 </beans>

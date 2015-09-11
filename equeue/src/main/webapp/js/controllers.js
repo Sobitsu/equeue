@@ -2,14 +2,14 @@
 
 App.controller('UserController', ['$scope', 'UserService', function($scope, UserService) {
           var self = this;
-          self.users= {id:null,login:'',password:'',token:null,surname:null,name:null,father_name:null,ufilial:null,upodr:null,user_Role:null};
-          self.userss=[];
+          self.user= {id:null,login:'',password:'',token:null,surname:null,name:null,father_name:null,ufilial:null,upodr:null,user_Role:null};
+          self.users=[];
               
           self.fetchAllUsers = function(){
               UserService.fetchAllUsers()
                   .then(
       					       function(d) {
-      						        self.userss = d;
+      						        self.users = d;
       					       },
             					function(errResponse){
             						console.error('Ошибка при выборе');
@@ -17,8 +17,8 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
       			       );
           };
            
-          self.createUser = function(users){
-              UserService.createUser(users)
+          self.createUser = function(user){
+              UserService.createUser(user)
 		              .then(
                       self.fetchAllUsers, 
 				              function(errResponse){
@@ -27,8 +27,8 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
                   );
           };
 
-         self.updateUser = function(users, id){
-              UserService.updateUser(users, id)
+         self.updateUser = function(user, id){
+              UserService.updateUser(user, id)
 		              .then(
 				              self.fetchAllUsers, 
 				              function(errResponse){
@@ -50,21 +50,21 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
           self.fetchAllUsers();
 
           self.submit = function() {
-              if(self.users.id==null){
-                  console.log('Сохранить', self.users);    
+              if(self.user.id==null){
+                  console.log('Сохранить', self.user);    
                   self.createUser(self.user);
               }else{
-                  self.updateUser(self.users, self.users.id);
-                  console.log('Обновить по ид', self.users.id);
+                  self.updateUser(self.user, self.user.id);
+                  console.log('Обновить по ид', self.user.id);
               }
               self.reset();
           };
               
           self.edit = function(id){
               console.log('ИД изменен', id);
-              for(var i = 0; i < self.userss.length; i++){
-                  if(self.userss[i].id == id) {
-                     self.users = angular.copy(self.userss[i]);
+              for(var i = 0; i < self.users.length; i++){
+                  if(self.users[i].id == id) {
+                     self.user = angular.copy(self.users[i]);
                      break;
                   }
               }
@@ -72,8 +72,8 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
               
           self.remove = function(id){
               console.log('ид удален', id);
-              for(var i = 0; i < self.userss.length; i++){
-                  if(self.userss[i].id == id) {
+              for(var i = 0; i < self.users.length; i++){
+                  if(self.users[i].id == id) {
                      self.reset();
                      break;
                   }
@@ -83,7 +83,7 @@ App.controller('UserController', ['$scope', 'UserService', function($scope, User
 
           
           self.reset = function(){
-              self.users={id:null,login:'',password:'',token:null,surname:null,name:null,father_name:null,ufilial:null,upodr:null,user_Role:null};;
+              self.user={id:null,login:'',password:'',token:null,surname:null,name:null,father_name:null,ufilial:null,upodr:null,user_Role:null};
               $scope.myForm.$setPristine(); //reset Form
           };
 

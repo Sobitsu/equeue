@@ -34,23 +34,30 @@ public class Users {
      String father_name;
     
      @Column(name="user_role")
-     Integer user_role;
+     int user_role;
      
      @Column(name="ufilial")
-     Integer ufilial;
+     int ufilial;
     
      @Column(name="upodr")
-     Integer upodr;
+     int upodr;
   
      public Users(){
          id=0;
      }
       
-     public Users(int id, String login, String password, String name){
+     public Users(int id, String login, String password, String token, String surname,String name,String father_name,int user_role,int ufilial,int upodr){
          this.id = id;
          this.login = login;
          this.password = password;
+         this.token = token;
+         this.surname = surname;
          this.name = name;
+         this.father_name = father_name;
+         this.user_role = user_role;
+         this.ufilial = ufilial;
+         this.upodr = upodr;
+         
      }    
  
   public int getid() {

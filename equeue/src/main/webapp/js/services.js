@@ -24,20 +24,20 @@ App.factory('UserService', ['$http', '$q', function($http, $q){
 										return response.data;
 									}, 
 									function(errResponse){
-										console.error('Error while creating user');
+										console.error('Ошибка при добавлении записи');
 										return $q.reject(errResponse);
 									}
 							);
 		    },
 		    
 		    updateUser: function(user, id){
-					return $http.put('http://localhost:8080/equeue/service/user/'+id, user)
+		    			return $http.put('http://localhost:8080/equeue/service/user/'+id, user)
 							.then(
 									function(response){
 										return response.data;
 									}, 
 									function(errResponse){
-										console.error('Error while updating user');
+										console.error('Ошибка при обновлении записи');
 										return $q.reject(errResponse);
 									}
 							);
