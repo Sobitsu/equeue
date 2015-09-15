@@ -42,3 +42,17 @@ UNIQUE KEY `id` (`id`)
 
 INSERT INTO user_role (`id`,`authority`,`name`)
 VALUES(null,'test1','Test_name_users_role');
+
+DROP TABLE IF EXISTS `devices`;
+CREATE TABLE  `devices` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) NOT NULL,
+  `podrazdel` bigint(20) DEFAULT NULL,
+  `deviceType` bigint(20) DEFAULT NULL,	
+  `state` bool DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO devices (`id`,`code`,`podrazdel`,`deviceType`,`state`)
+VALUES(1,'dev1',1,1,true);

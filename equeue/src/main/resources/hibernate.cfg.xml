@@ -14,5 +14,6 @@
      <mapping class="com.sobit.equeue.entities.Users"/>
    	 <mapping class="com.sobit.equeue.entities.Filial"/>
    	 <mapping class="com.sobit.equeue.entities.UsersRole"/>
+   	 <mapping class="com.sobit.equeue.entities.Devices"/>
   </session-factory>
 </hibernate-configuration>
