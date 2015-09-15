@@ -7,46 +7,43 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 
-import com.sobit.equeue.entities.Filial;
+import com.sobit.equeue.entities.Devices;
  
 import com.sobit.equeue.services.util.HibernateUtil;
  
-@Service("FilialDAO")
+@Service("DevicesDAO")
 
 public class DevicesDAO {
  
 	SessionFactory sessionFactory=HibernateUtil.getSessionFactory();
 	 
 	public DevicesDAO() {
-	 
+		
 	}
-	public List<Filial> getFilial()
-	 
-	{
+	
+	public List<Devices> getDevices(){
 	 
 	Session s=sessionFactory.openSession();
 	 
-	List<Filial> filial= s.createCriteria(Filial.class).list();
+	List<Devices> devices= s.createCriteria(Devices.class).list();
 	 
 	s.close();
-	return filial;
+	return devices;
 	 
 	}
 	 
-	public Filial getFilial(int id)
-	 
-	{
+	public Devices getDevices(int id){
 	 
 	Session s=sessionFactory.openSession();
 	 
-	Criteria cr=s.createCriteria(Filial.class);
+	Criteria cr=s.createCriteria(Devices.class);
 	 
 	cr.add(Restrictions.eq("id", id));
 	 
-	Filial filial=(Filial) cr.list().get(0);
+	Devices devices=(Devices) cr.list().get(0);
 	 
 	s.close();
-	return filial;
+	return devices;
 	 
 	}
 }

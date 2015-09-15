@@ -15,28 +15,28 @@ public class Devices {
      @Column(name="id")
      int id;
 
-     @Column(name="kod")
-     String kod;
+     @Column(name="code")
+     String code;
      
-     @Column(name="name")
-     String name;
+     @Column(name="podrazdel")
+     Integer podrazdel;
      
-     @Column(name="address")
-     String address;
+     @Column(name="deviceType")
+     Integer deviceType;
      
-     @Column(name="coment")
-     String coment;
+     @Column(name="state")
+     Boolean state;
   
      public Devices(){
          id=0;
      }
       
-     public Devices(int id, String kod, String name, String address, String coment){
+     public Devices(int id, String code, Integer podrazdel, Integer deviceType, Boolean state){
     	 this.id= id;
-         this.kod = kod;
-         this.name = name;
-         this.address = address;
-         this.coment = coment;
+         this.code = code;
+         this.podrazdel = podrazdel;
+         this.deviceType = deviceType;
+         this.state = state;
      }    
  
   public int getid() {
@@ -47,35 +47,35 @@ public class Devices {
          this.id = id;
   }
         
-    public String getKod() {
-        return kod;
+    public String getCode() {
+        return code;
     }
 
-    public void setKod(String kod) {
-        this.kod = kod;
+    public void setCode(String code) {
+        this.code = code;
     }
     
-    public String getName() {
-        return name;
+    public Integer getPodrazdel() {
+        return podrazdel;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPodrazdel(Integer podrazdel) {
+        this.podrazdel = podrazdel;
     }   
     
-    public String getAddress() {
-        return address;
+    public Integer getDeviceType() {
+        return deviceType;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDeviceType(Integer deviceType) {
+        this.deviceType = deviceType;
     } 
     
-    public String getComent() {
-        return coment;
+    public Boolean isState() {
+        return state;
     }
 
-    public void setComent(String coment) {
-        this.coment = coment;
+    public void setState(Boolean state) {
+        this.state = state;
     } 
 }
